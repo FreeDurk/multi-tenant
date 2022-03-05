@@ -17,7 +17,7 @@ class UserController extends Controller
 		$password = 'password';
 
 		if(Auth::attempt(['email' => $email, 'password' => $password])){
-			return 'ok';
+			return 'okkkkkk';
 		}else{
 			return 'not ok';
 		}
