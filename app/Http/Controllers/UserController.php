@@ -12,12 +12,13 @@ class UserController extends Controller
 		return response()->json(User::all());
 	}
 
-	public function login(){
-		$email = 'gaylord15@example.org';
+	public function login(Request $request){
+		$email = 'clementina27@example.org';
 		$password = 'password';
 
 		if(Auth::attempt(['email' => $email, 'password' => $password])){
-			return 'very nice';
+			$token = $request->user()->createToken('test');
+			return ['token' => $token->plainTextToken];
 		}else{
 			return 'not ok';
 		}
